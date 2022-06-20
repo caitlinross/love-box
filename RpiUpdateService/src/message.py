@@ -19,6 +19,7 @@ class Message:
             self.modified: str = DateTimeEncoder().encode(datetime.datetime.utcnow())
         else:
             self.modified: str = json.loads(modified, object_hook=DecodeDateTime)
+        self.modified = self.modified.replace('"', '')
 
     def __str__(self) -> str:
         return "Message: " + self.message + "\nModified: " + str(self.modified)

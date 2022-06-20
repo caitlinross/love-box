@@ -10,7 +10,7 @@ class MessageRepository:
         cred = credentials.Certificate(os.environ["FIREBASE_PRIVATE_KEY"])
         firebase_admin.initialize_app(
             cred,
-            {"databaseURL": "https://emilymessageboard-default-rtdb.firebaseio.com/"},
+            {"databaseURL": "https://amanda-message-board-default-rtdb.firebaseio.com/"},
         )
         self.ref = db.reference("/")
         self.message = Message(**self.ref.get())
